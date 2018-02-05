@@ -10,6 +10,7 @@ export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
     new Recipe('Tasty chicken wings',
     'OM NOM NOM NOM',
+    // tslint:disable-next-line:max-line-length
     'http://www.coca-colacompany.com/content/dam/journey/us/en/global/2012/11/chicken-wings-604mk112612-604-337-3f7d77f6.rendition.598.336.jpg')
   ];
   constructor() { }
