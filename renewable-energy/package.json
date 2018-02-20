@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.2",
     "@angular/animations": "^5.2.5",
     "@angular/cdk": "^5.2.1",
     "@angular/common": "^5.2.0",
@@ -29,6 +30,7 @@
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
     "mongoose": "^5.0.5",
     "mongoose-unique-validator": "^2.0.0",
     "morgan": "^1.9.0",

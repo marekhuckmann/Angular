@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs';
+import { HttpModule } from '@angular/http';
 
 import { User } from './user.model';
 

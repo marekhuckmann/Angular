@@ -21,3 +21,16 @@
     </tbody>
   </table>
 </div>
+<div class="container" *ngIf="lat && lng">
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng">
+      <agm-info-window>       
+        <p>Hello?</p>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</div>
+<div>
+  {{ lat }}
+  <p>{{lng}}</p>
+</div>
