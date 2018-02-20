@@ -10,24 +10,24 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeatComponent implements OnInit {
 
-  book = {};
+  location = {};
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getBook(this.route.snapshot.params['id']);
+    this.getlocation(this.route.snapshot.params['id']);
   }
 
-  getBook(id) {
-    this.http.get('/book/' + id).subscribe(data => {
-      this.book = data;
+  getlocation(id) {
+    this.http.get('/location/' + id).subscribe(data => {
+      this.location = data;
     });
   }
-  updateBook(id, book) {
-    this.http.put('/book/' + id, this.book)
+  updatelocation(id, location) {
+    this.http.put('/location/' + id, this.location)
       .subscribe(res => {
         let id = res['_id'];
-        this.router.navigate(['/books']);
+        this.router.navigate(['/locations']);
       }, (err) => {
         console.log(err);
       }

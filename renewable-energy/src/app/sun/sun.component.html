@@ -1,36 +1,42 @@
 <div class="container">
-  <h1>Book List
-    <a [routerLink]="['/book-create']" class="btn btn-default btn-lg">
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  <h1>Lista lokalizacji
+    <a [routerLink]="['/location-create']" class="btn btn-default btn-lg">
+      <span class="caret"></span>
     </a>
   </h1>
   <table class="table">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Action</th>
+        <th>Nazwa</th>
+        <th>Opis</th>
+        <th>Zmien</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let book of books">
-        <td>{{ book.title }}</td>
-        <td>{{ book.author }}</td>
-        <td><a [routerLink]="['/book-details', book._id]">Show Details</a></td>
+      <tr *ngFor="let location of locations">
+        <td>{{ location.title }}</td>
+        <td>{{ location.description }}</td>
+        <td>
+          <a [routerLink]="['/location-details', location._id]">Pokaż szczegóły</a>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
 <div class="container" *ngIf="lat && lng">
-  <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="11">
     <agm-marker [latitude]="lat" [longitude]="lng">
-      <agm-info-window>       
-        <p>Hello?</p>
+      <agm-info-window>
+        <p>You're here.</p>
       </agm-info-window>
     </agm-marker>
   </agm-map>
 </div>
-<div>
-  {{ lat }}
-  <p>{{lng}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p>{{ lat }}</p>
+      <p>{{ lng }}</p>
+    </div>
+  </div>
 </div>

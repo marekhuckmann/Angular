@@ -10,18 +10,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WaterComponent implements OnInit {
 
-  book = {};
+  location = {};
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }
 
-  saveBook() {
-    this.http.post('/book', this.book)
+  saveLocation() {
+    this.http.post('/location', this.location)
       .subscribe(res => {
           let id = res['_id'];
-          this.router.navigate(['/book-details', id]);
+          this.router.navigate(['/location-details', id]);
         }, (err) => {
           console.log(err);
         }

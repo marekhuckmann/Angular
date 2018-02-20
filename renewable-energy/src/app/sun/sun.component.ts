@@ -7,15 +7,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./sun.component.css']
 })
 export class SunComponent implements OnInit {
-  books: any;
+  locations: any;
   lat: number;
   lng: number;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('/book').subscribe(data => {
-      this.books = data;
+    this.http.get('/location').subscribe(data => {
+      this.locations = data;
     });
 
     this.getUserLocation();

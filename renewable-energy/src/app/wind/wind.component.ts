@@ -11,23 +11,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class WindComponent implements OnInit {
 
-  book = {};
+  location = {};
 
   constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) { }
-  
+
   ngOnInit() {
-    this.getBookDetail(this.route.snapshot.params['id']);
+    this.getlocationDetail(this.route.snapshot.params['id']);
   }
 
-  getBookDetail(id) {
-    this.http.get('/book/' + id).subscribe(data => {
-      this.book = data;
+  getlocationDetail(id) {
+    this.http.get('/location/' + id).subscribe(data => {
+      this.location = data;
     });
   }
-  deleteBook(id) {
-    this.http.delete('/book/'+id)
+  deletelocation(id) {
+    this.http.delete('/location/' + id)
       .subscribe(res => {
-          this.router.navigate(['/books']);
+          this.router.navigate(['/locations']);
         }, (err) => {
           console.log(err);
         }

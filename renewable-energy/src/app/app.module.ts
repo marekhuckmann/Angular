@@ -22,24 +22,24 @@ import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   {
-    path: 'books',
+    path: 'locations',
     component: SunComponent,
-    data: { title: 'Book List' }
+    data: { title: 'location List' }
   },
   {
-    path: 'book-details/:id',
+    path: 'location-details/:id',
     component: WindComponent,
-    data: { title: 'Book Details'}
+    data: { title: 'location Details'}
   },
   {
-    path: 'book-create',
+    path: 'location-create',
     component: WaterComponent,
-    data: { title: 'Create Book' }
+    data: { title: 'Create location' }
   },
   {
-    path: 'book-edit/:id',
+    path: 'location-edit/:id',
     component: HeatComponent,
-    data: { title: 'Edit Book' }
+    data: { title: 'Edit location' }
   },
   {
     path: 'auth',
@@ -53,7 +53,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/books',
+    redirectTo: '/locations',
     pathMatch: 'full'
   }
 ];

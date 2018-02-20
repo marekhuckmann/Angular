@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
-import { AuthService } from "./auth.service";
+import { AuthService } from './auth.service';
 
 @Component({
     selector: 'app-logout',
