@@ -6,13 +6,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpModule } from '@ngx-progressbar/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { SunComponent } from './sun/sun.component';
-import { WindComponent } from './wind/wind.component';
-import { WaterComponent } from './water/water.component';
-import { HeatComponent } from './heat/heat.component';
+import { LocationsComponent } from './locations/locations.component';
+import { LocationDetailsComponent } from './location-details/location-details.component';
+import { LocationCreateComponent } from './location-create/location-create.component';
+import { LocationEdit } from './location-edit/location-edit.component';
 import { AuthenticationComponent } from './auth/authentication.component';
 import { SigninComponent } from './auth/signin.component';
 import { LogoutComponent } from './auth/logout.component';
@@ -23,22 +25,22 @@ import { environment } from '../environments/environment';
 const appRoutes: Routes = [
   {
     path: 'locations',
-    component: SunComponent,
-    data: { title: 'location List' }
+    component: LocationsComponent,
+    data: { title: 'Location List' }
   },
   {
     path: 'location-details/:id',
-    component: WindComponent,
-    data: { title: 'location Details'}
+    component: LocationDetailsComponent,
+    data: { title: 'Location Details'}
   },
   {
     path: 'location-create',
-    component: WaterComponent,
+    component: LocationCreateComponent,
     data: { title: 'Create location' }
   },
   {
     path: 'location-edit/:id',
-    component: HeatComponent,
+    component: LocationEdit,
     data: { title: 'Edit location' }
   },
   {
@@ -62,10 +64,10 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    SunComponent,
-    WindComponent,
-    WaterComponent,
-    HeatComponent,
+    LocationsComponent,
+    LocationDetailsComponent,
+    LocationCreateComponent,
+    LocationEdit,
     AuthenticationComponent,
     SigninComponent,
     LogoutComponent,
@@ -85,7 +87,9 @@ const appRoutes: Routes = [
     ),
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey
-    })
+    }),
+    NgProgressModule.forRoot(),
+    NgProgressHttpModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

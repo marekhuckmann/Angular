@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-sun',
-  templateUrl: './sun.component.html',
-  styleUrls: ['./sun.component.css']
+  selector: 'app-locations',
+  templateUrl: './locations.component.html',
+  styleUrls: ['./locations.component.css']
 })
-export class SunComponent implements OnInit {
+export class LocationsComponent implements OnInit {
   locations: any;
   lat: number;
   lng: number;

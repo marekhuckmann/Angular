@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-water',
-  templateUrl: './water.component.html',
-  styleUrls: ['./water.component.css'],
+  selector: 'app-location-create',
+  templateUrl: './location-create.component.html',
+  styleUrls: ['./location-create.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class WaterComponent implements OnInit {
+export class LocationCreateComponent implements OnInit {
 
   location = {};
 
@@ -18,7 +18,10 @@ export class WaterComponent implements OnInit {
   }
 
   saveLocation() {
-    this.http.post('/location', this.location)
+    const token = localStorage.getItem('token')
+    ? '?token=' + localStorage.getItem('token')
+    : '';
+    this.http.post('/location' + token, this.location)
       .subscribe(res => {
           let id = res['_id'];
           this.router.navigate(['/location-details', id]);

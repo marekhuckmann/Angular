@@ -4,12 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-wind',
-  templateUrl: './wind.component.html',
-  styleUrls: ['./wind.component.css'],
+  selector: 'app-location-details',
+  templateUrl: './location-details.component.html',
+  styleUrls: ['./location-details.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class WindComponent implements OnInit {
+export class LocationDetailsComponent implements OnInit {
 
   location = {};
 
@@ -24,8 +24,11 @@ export class WindComponent implements OnInit {
       this.location = data;
     });
   }
-  deletelocation(id) {
-    this.http.delete('/location/' + id)
+  deleteLocation(id) {
+    const token = localStorage.getItem('token')
+    ? '?token=' + localStorage.getItem('token')
+    : '';
+    this.http.delete('/location/' + id + token)
       .subscribe(res => {
           this.router.navigate(['/locations']);
         }, (err) => {

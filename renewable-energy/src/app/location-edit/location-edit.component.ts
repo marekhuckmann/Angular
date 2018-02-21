@@ -3,12 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-heat',
-  templateUrl: './heat.component.html',
-  styleUrls: ['./heat.component.css'],
+  selector: 'app-location-edit',
+  templateUrl: './location-edit.component.html',
+  styleUrls: ['./location-edit.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class HeatComponent implements OnInit {
+export class LocationEdit implements OnInit {
 
   location = {};
 
@@ -19,12 +19,18 @@ export class HeatComponent implements OnInit {
   }
 
   getlocation(id) {
-    this.http.get('/location/' + id).subscribe(data => {
+    const token = localStorage.getItem('token')
+    ? '?token=' + localStorage.getItem('token')
+    : '';
+    this.http.get('/location/' + id + token).subscribe(data => {
       this.location = data;
     });
   }
   updatelocation(id, location) {
-    this.http.put('/location/' + id, this.location)
+    const token = localStorage.getItem('token')
+    ? '?token=' + localStorage.getItem('token')
+    : '';
+    this.http.put('/location/' + id + token, this.location)
       .subscribe(res => {
         let id = res['_id'];
         this.router.navigate(['/locations']);
