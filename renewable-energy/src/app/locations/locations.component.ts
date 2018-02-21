@@ -16,6 +16,7 @@ export class LocationsComponent implements OnInit {
   ngOnInit() {
     this.http.get('/location').subscribe(data => {
       this.locations = data;
+      console.log(this.locations);
     });
 
     this.getUserLocation();
@@ -34,8 +35,8 @@ export class LocationsComponent implements OnInit {
               const component = sth['results'][0].address_components[ac];
 
               if (component.types[0] === 'administrative_area_level_1') {
-                  voivodeship = component.short_name;
-                  break;
+                voivodeship = component.short_name;
+                break;
               }
               console.log(ac);
             }
@@ -43,5 +44,8 @@ export class LocationsComponent implements OnInit {
           });
       });
     }
+  }
+  belongsToUser(loc) {
+    return localStorage.getItem('userId') == loc.user['0']._id;
   }
 }

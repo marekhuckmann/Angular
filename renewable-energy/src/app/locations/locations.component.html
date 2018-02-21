@@ -9,16 +9,20 @@
       <tr>
         <th>Nazwa</th>
         <th>Opis</th>
+        <th>ID</th>
         <th>Zmien</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let location of locations">
-        <td>{{ location.title }}</td>
-        <td>{{ location.description }}</td>
-        <td>
-          <a [routerLink]="['/location-details', location._id]">Pokaż szczegóły</a>
-        </td>
+        <ng-container *ngIf="belongsToUser(location)">
+          <td>{{ location.title }}</td>
+          <td>{{ location.description }}</td>
+          <td>{{ location.user["0"]._id }} id </td>
+          <td>
+            <a [routerLink]="['/location-details', location._id]">Pokaż szczegóły</a>
+          </td>
+        </ng-container>
       </tr>
     </tbody>
   </table>

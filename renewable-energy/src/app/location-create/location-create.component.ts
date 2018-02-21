@@ -23,6 +23,7 @@ export class LocationCreateComponent implements OnInit {
     : '';
     this.http.post('/location' + token, this.location)
       .subscribe(res => {
+          // tslint:disable-next-line:prefer-const
           let id = res['_id'];
           this.router.navigate(['/location-details', id]);
         }, (err) => {
